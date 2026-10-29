@@ -37,14 +37,22 @@ Original source fields are retained where possible, including additional fields 
 
 The historical marriage records from 1966–2014 provide husband and wife classifications. These source classifications are used to construct a historical first-name reference table.
 
-For each first name, the estimated probability of being male is calculated as:
 
-$$
-P(\text{Male Role}\mid\text{First Name})
+For each first name \(n\), the estimated probability of being male is calculated as:
+
+```math
+\widehat{P}(\text{Male} \mid n)
 =
-\frac{\text{Number of historical husband-role observations}}
-{\text{Total historical observations of that first name}}
-$$
+\frac{N_H(n)}{N_H(n)+N_W(n)}
+```
+
+where:
+
+- \(N_H(n)\) is the number of times first name \(n\) appears in the historical husband records.
+- \(N_W(n)\) is the number of times first name \(n\) appears in the historical wife records.
+
+The estimate is based on Texas marriage records from 1966–2014. It represents the historical proportion of observations associated with the husband role, rather than a verified measure of an individual's sex.
+
 
 The resulting probability is assigned to individuals with matching first names in the harmonized datasets.
 
